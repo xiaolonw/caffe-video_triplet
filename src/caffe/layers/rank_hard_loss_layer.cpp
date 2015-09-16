@@ -7,6 +7,9 @@
 
 namespace caffe {
 
+int myrandom (int i) { return caffe_rng_rand()%i;}
+
+
 template <typename Dtype>
 void RankHardLossLayer<Dtype>::Reshape(
   const vector<Blob<Dtype>*>& bottom, const vector<Blob<Dtype>*>& top) {
