@@ -17,7 +17,7 @@ template <typename Dtype>
 void NormLayer<Dtype>::LayerSetUp(const vector<Blob<Dtype>*>& bottom,
       const vector<Blob<Dtype>*>& top) {
 	CHECK_EQ(bottom.size(), 1) << "NormLayer Layer takes a single blob as input.";
-	CHECK_EQ(top->size(), 1) << "NormLayer Layer takes a single blob as output.";
+	CHECK_EQ(top.size(), 1) << "NormLayer Layer takes a single blob as output.";
 
 }
 
