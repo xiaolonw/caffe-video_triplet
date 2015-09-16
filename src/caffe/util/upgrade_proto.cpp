@@ -516,6 +516,8 @@ V1LayerParameter_LayerType UpgradeV0LayerType(const string& type) {
     return V1LayerParameter_LayerType_TANH;
   } else if (type == "window_data") {
     return V1LayerParameter_LayerType_WINDOW_DATA;
+  } else if (type == "rank_hard_loss") {
+	return V1LayerParameter_LayerType_RANK_HARD_LOSS;
   } else {
     LOG(FATAL) << "Unknown layer name: " << type;
     return V1LayerParameter_LayerType_NONE;
@@ -917,6 +919,8 @@ const char* UpgradeV1LayerType(const V1LayerParameter_LayerType type) {
     return "WindowData";
   case V1LayerParameter_LayerType_THRESHOLD:
     return "Threshold";
+  case V1LayerParameter_LayerType_RANK_HARD_LOSS:
+    return "RankHardLoss";
   default:
     LOG(FATAL) << "Unknown V1LayerParameter layer type: " << type;
     return "";

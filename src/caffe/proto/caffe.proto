@@ -385,7 +385,22 @@ message LayerParameter {
   optional ThresholdParameter threshold_param = 128;
   optional TileParameter tile_param = 138;
   optional WindowDataParameter window_data_param = 129;
+  
+  // added wxl
+  optional RankParameter rank_param = 139;
+  
 }
+
+
+message RankParameter {
+  optional uint32 neg_num = 1 [default = 1]; 
+  optional uint32 pair_size = 2 [default = 1]; 
+  optional float hard_ratio = 3; 
+  optional float rand_ratio = 4;
+  optional float margin = 5 [default = 0.5];
+}
+
+
 
 // Message that stores parameters used to apply transformation
 // to the data layer's data
@@ -1031,6 +1046,11 @@ message V1LayerParameter {
     TANH = 23;
     WINDOW_DATA = 24;
     THRESHOLD = 31;
+    
+    //added by wxl
+    RANK_HARD_LOSS = 40;
+    NORM = 41;
+    
   }
   optional LayerType type = 5;
   repeated BlobProto blobs = 6;
@@ -1074,6 +1094,9 @@ message V1LayerParameter {
   optional TransformationParameter transform_param = 36;
   optional LossParameter loss_param = 42;
   optional V0LayerParameter layer = 1;
+  
+  // added wxl
+  optional RankParameter rank_param = 43;
 }
 
 // DEPRECATED: V0LayerParameter is the old way of specifying layer parameters
