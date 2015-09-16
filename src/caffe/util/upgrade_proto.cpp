@@ -518,6 +518,8 @@ V1LayerParameter_LayerType UpgradeV0LayerType(const string& type) {
     return V1LayerParameter_LayerType_WINDOW_DATA;
   } else if (type == "rank_hard_loss") {
 	return V1LayerParameter_LayerType_RANK_HARD_LOSS;
+  } else if (type == "norm") {
+	return V1LayerParameter_LayerType_NORM;
   } else {
     LOG(FATAL) << "Unknown layer name: " << type;
     return V1LayerParameter_LayerType_NONE;
@@ -921,6 +923,8 @@ const char* UpgradeV1LayerType(const V1LayerParameter_LayerType type) {
     return "Threshold";
   case V1LayerParameter_LayerType_RANK_HARD_LOSS:
     return "RankHardLoss";
+  case V1LayerParameter_LayerType_NORM:
+    return "Norm";
   default:
     LOG(FATAL) << "Unknown V1LayerParameter layer type: " << type;
     return "";
