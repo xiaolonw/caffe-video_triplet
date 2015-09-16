@@ -1,16 +1,14 @@
-net: "imagenet_cls.prototxt"
-# base_lr: 0.001
-base_lr: 0.0001
+net: "imagenet_train.prototxt"
+base_lr: 0.001
 lr_policy: "step"
 gamma: 0.1
-# stepsize: 25000 
-stepsize: 10000 
+stepsize: 100000 
 display: 5
-max_iter: 60000
+max_iter: 600000
 momentum: 0.9
 weight_decay: 0.0005
-snapshot: 5000
-snapshot_prefix: "/home/xiaolonw/video_models/ucf_vgg_cls/video_"
+snapshot: 10000
+snapshot_prefix: "/home/xiaolonw/video_models/unsup_vgg/video_"
 solver_mode: GPU
 device_id: 5
 

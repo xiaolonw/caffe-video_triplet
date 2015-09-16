@@ -252,6 +252,7 @@ class ImageDataLayer : public BasePrefetchingDataLayer<Dtype> {
   shared_ptr<Caffe::RNG> prefetch_rng_;
   virtual void ShuffleImages();
   virtual void load_batch(Batch<Dtype>* batch);
+  static int myrandomdata (int i);
 
   vector<std::pair<std::string, int> > lines_;
   int lines_id_;

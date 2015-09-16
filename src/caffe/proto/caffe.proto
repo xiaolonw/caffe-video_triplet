@@ -672,6 +672,7 @@ message ImageDataParameter {
   // data.
   optional bool mirror = 6 [default = false];
   optional string root_folder = 12 [default = ""];
+  optional uint32 pair_size = 13 [default = 1];
 }
 
 message InfogainLossParameter {

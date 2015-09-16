@@ -1,4 +1,4 @@
-train_net: "/nfs/hn46/xiaolonw/video_cnncode/caffe-video_rank/scripts_video2/rank_gray_8m_1fc_pre2/imagenet_train.prototxt"
+train_net: "imagenet_train.prototxt"
 base_lr: 0.001
 lr_policy: "step"
 gamma: 0.1
