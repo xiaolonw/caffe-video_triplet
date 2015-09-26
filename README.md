@@ -20,18 +20,18 @@ In the loss, for each pair of patches, it will try to find the third negative pa
 
 In the prototxt: 
 
-layer {
-  name: "loss"
-  type: "RankHardLoss" 
-  rank_param{
-    neg_num: 4
-    pair_size: 2
-    hard_ratio: 0.5
-    rand_ratio: 0.5
-    margin: 1
-  }
-  bottom: "norml2"
-  bottom: "label"
+layer {	
+  name: "loss"	
+  type: "RankHardLoss" 	
+  rank_param{	
+    neg_num: 4	
+    pair_size: 2 	
+    hard_ratio: 0.5 	
+    rand_ratio: 0.5 	
+    margin: 1 	
+  } 	
+  bottom: "norml2" 	
+  bottom: "label" 	
 }
 
 
