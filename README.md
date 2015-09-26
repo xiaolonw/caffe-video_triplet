@@ -4,6 +4,7 @@
 This code is developed based on the caffe code: [project site](http://caffe.berkeleyvision.org).
 
 This code is the implementation for training the siamese-triplet network in the following paper:
+
 **Xiaolong Wang** and Abhinav Gupta. Unsupervised Learning of Visual Representations using Videos. Proc. of IEEE International Conference on Computer Vision (ICCV), 2015. 
 
 Codes
@@ -13,13 +14,14 @@ Training scripts are in rank_scripts/rank_alexnet:
 
 For implementation, since the siamese networks share the weights, so there is actually only one network in prototxt. 
 
-The input of the network is pairs of image patches. For each pair of patches, they are taken as the similar patches in the same video track. I use the label to specify whether the patches come from the same video, if they come from different videos they will have different labels (it does not matter what is the number, just need to be integer). In this way, I can get the third negative patch from other pairs with different labels. 
+The input of the network is pairs of image patches. For each pair of patches, they are taken as the similar patches in the same video track. We use the label to specify whether the patches come from the same video, if they come from different videos they will have different labels (it does not matter what is the number, just need to be integer). In this way, we can get the third negative patch from other pairs with different labels. 
 
 In the loss, for each pair of patches, it will try to find the third negative patch in the same batch. There are two ways to do it, one is random selection, the other is hard negative mining. 
 
 In the prototxt: 
 
 layer {
+
   name: "loss"
   type: "RankHardLoss" 
   rank_param{
