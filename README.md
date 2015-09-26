@@ -46,7 +46,7 @@ We offer two models trained with our method:
 
 [color model](http://ladoga.graphics.cs.cmu.edu/xiaolonw/unsup_models/color_model.caffemodel) is trained with RGB images. 	
 [gray model](http://ladoga.graphics.cs.cmu.edu/xiaolonw/unsup_models/gray_model.caffemodel) is trained with gray images (3-channel inputs). 	
-[prototxt](https://github.com/xiaolonw/caffe-video_triplet/blob/master/rank_scripts/rank_alexnet/unsup_net_deploy.prototxt) is the prototxt.	
+[prototxt](https://github.com/xiaolonw/caffe-video_triplet/blob/master/rank_scripts/rank_alexnet/unsup_net_deploy.prototxt) is the prototxt for both models.	
 [mean](https://github.com/xiaolonw/caffe-video_triplet/blob/master/rank_scripts/rank_alexnet/video_mean.binaryproto) is the mean file.	
 
 
