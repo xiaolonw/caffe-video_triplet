@@ -1,35 +1,50 @@
-# Caffe
 
-Caffe is a deep learning framework made with expression, speed, and modularity in mind.
-It is developed by the Berkeley Vision and Learning Center ([BVLC](http://bvlc.eecs.berkeley.edu)) and community contributors.
-
-Check out the [project site](http://caffe.berkeleyvision.org) for all the details like
-
-- [DIY Deep Learning for Vision with Caffe](https://docs.google.com/presentation/d/1UeKXVgRvvxg9OUdh_UiC5G71UMscNPlvArsWER41PsU/edit#slide=id.p)
-- [Tutorial Documentation](http://caffe.berkeleyvision.org/tutorial/)
-- [BVLC reference models](http://caffe.berkeleyvision.org/model_zoo.html) and the [community model zoo](https://github.com/BVLC/caffe/wiki/Model-Zoo)
-- [Installation instructions](http://caffe.berkeleyvision.org/installation.html)
-
-and step-by-step examples.
-
-[![Join the chat at https://gitter.im/BVLC/caffe](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/BVLC/caffe?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-Please join the [caffe-users group](https://groups.google.com/forum/#!forum/caffe-users) or [gitter chat](https://gitter.im/BVLC/caffe) to ask questions and talk about methods and models.
-Framework development discussions and thorough bug reports are collected on [Issues](https://github.com/BVLC/caffe/issues).
-
-Happy brewing!
-
-## License and Citation
-
-Caffe is released under the [BSD 2-Clause license](https://github.com/BVLC/caffe/blob/master/LICENSE).
-The BVLC reference models are released for unrestricted use.
-
-Please cite Caffe in your publications if it helps your research:
-
-    @article{jia2014caffe,
-      Author = {Jia, Yangqing and Shelhamer, Evan and Donahue, Jeff and Karayev, Sergey and Long, Jonathan and Girshick, Ross and Guadarrama, Sergio and Darrell, Trevor},
-      Journal = {arXiv preprint arXiv:1408.5093},
-      Title = {Caffe: Convolutional Architecture for Fast Feature Embedding},
-      Year = {2014}
-    }
 # caffe-video_triplet
+
+This code is developed based on the caffe code: [project site](http://caffe.berkeleyvision.org).
+
+This code is the implementation for training the siamese-triplet network in the following paper:
+**Xiaolong Wang** and Abhinav Gupta. Unsupervised Learning of Visual Representations using Videos. Proc. of IEEE International Conference on Computer Vision (ICCV), 2015. 
+
+Codes
+----
+
+Training scripts are in rank_scripts/rank_alexnet: 
+
+For implementation, since the siamese networks share the weights, so there is actually only one network in prototxt. 
+
+The input of the network is pairs of image patches. For each pair of patches, they are taken as the similar patches in the same video track. I use the label to specify whether the patches come from the same video, if they come from different videos they will have different labels (it does not matter what is the number, just need to be integer). In this way, I can get the third negative patch from other pairs with different labels. 
+
+In the loss, for each pair of patches, it will try to find the third negative patch in the same batch. There are two ways to do it, one is random selection, the other is hard negative mining. 
+
+In the prototxt: 
+
+layer {
+  name: "loss"
+  type: "RankHardLoss" 
+  rank_param{
+    neg_num: 4
+    pair_size: 2
+    hard_ratio: 0.5
+    rand_ratio: 0.5
+    margin: 1
+  }
+  bottom: "norml2"
+  bottom: "label"
+}
+
+
+neg_num means how many negative patches you want for each pair of patches, if it is 4, that means there are 4 triplets. pair_size = 2 just means inputs are pairs of patches. hard_ratio = 0.5 means half of the negative patches are hard examples, rand_ratio = 0.5 means half of the negative patches are randomly selected. For start, you can just set rand_ratio = 1 and hard_ratio = 0. margin is the margin for contrastive loss. 
+
+
+Models
+----
+
+We offer two models trained with our method: 
+[color model](http://ladoga.graphics.cs.cmu.edu/xiaolonw/unsup_models/color_model.caffemodel) is trained with RGB images. 
+[gray model](http://ladoga.graphics.cs.cmu.edu/xiaolonw/unsup_models/gray_model.caffemodel) is trained with gray images (3-channel inputs). 
+[prototxt](https://github.com/xiaolonw/caffe-video_triplet/blob/master/rank_scripts/rank_alexnet/unsup_net_deploy.prototxt)
+[mean](https://github.com/xiaolonw/caffe-video_triplet/blob/master/rank_scripts/rank_alexnet/video_mean.binaryproto)
+
+
+
