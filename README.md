@@ -23,7 +23,7 @@ In the prototxt:
 layer {		
 	name: "loss"	
 	type: "RankHardLoss" 	
-	rank_param{	
+	rank_param{		
 		neg_num: 4	
 		pair_size: 2 	
 		hard_ratio: 0.5 	
