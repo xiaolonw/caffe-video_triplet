@@ -21,7 +21,6 @@ In the loss, for each pair of patches, it will try to find the third negative pa
 In the prototxt: 
 
 layer {
-
   name: "loss"
   type: "RankHardLoss" 
   rank_param{
