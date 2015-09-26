@@ -1,4 +1,4 @@
-name: "ActionNet" 
+name: "UnsupNet" 
 layer {
   name: "data"
   type: "ImageData"
@@ -14,7 +14,7 @@ layer {
   }
   image_data_param {
     source: "/nfs/hn46/xiaolonw/video/improved_trajectory_release/imglist2/scratch_list/trainlist_label_8m.txt"
-    batch_size: 80
+    batch_size: 100
     new_height: 227
     new_width: 227
     shuffle: true

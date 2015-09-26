@@ -10,6 +10,6 @@ weight_decay: 0.0005
 snapshot: 10000
 snapshot_prefix: "/home/xiaolonw/video_models/unsup_alexnet/video_"
 solver_mode: GPU
-device_id: 3
+device_id: 4
 
 
