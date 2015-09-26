@@ -20,6 +20,7 @@ In the loss, for each pair of patches, it will try to find the third negative pa
 
 In the prototxt: 
 
+```txt
 layer {		
 	name: "loss"	
 	type: "RankHardLoss" 	
@@ -33,7 +34,7 @@ layer {
 	bottom: "norml2" 	
 	bottom: "label" 	
 }
-
+```
 
 neg_num means how many negative patches you want for each pair of patches, if it is 4, that means there are 4 triplets. pair_size = 2 just means inputs are pairs of patches. hard_ratio = 0.5 means half of the negative patches are hard examples, rand_ratio = 0.5 means half of the negative patches are randomly selected. For start, you can just set rand_ratio = 1 and hard_ratio = 0. margin is the margin for contrastive loss. 
 
