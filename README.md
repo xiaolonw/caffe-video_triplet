@@ -5,7 +5,7 @@ This code is developed based on Caffe: [project site](http://caffe.berkeleyvisio
 
 This code is the implementation for training the siamese-triplet network in the paper:
 
-**Xiaolong Wang** and Abhinav Gupta. Unsupervised Learning of Visual Representations using Videos. Proc. of IEEE International Conference on Computer Vision (ICCV), 2015. 
+**Xiaolong Wang** and Abhinav Gupta. Unsupervised Learning of Visual Representations using Videos. Proc. of IEEE International Conference on Computer Vision (ICCV), 2015. [pdf](http://www.cs.cmu.edu/~xiaolonw/papers/unsupervised_video.pdf)
 
 Codes
 ----
