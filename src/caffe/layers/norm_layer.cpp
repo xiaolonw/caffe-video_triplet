@@ -86,38 +86,52 @@ void NormLayer<Dtype>::Backward_cpu(const vector<Blob<Dtype>*>& top,
   int num = bottom[0]->num();
   int dim = bottom[0]->count() / bottom[0]->num();
   int dimScale = height * width;
-
   for(int i = 0; i < num; i ++)
   {
-  	  for(int h = 0; h < height; h ++)
-  		  for(int w = 0; w < width; w ++)
-  		  {
-  			  float sumdata = 0;
+	  for(int h = 0; h < height; h ++)
+		  for(int w = 0; w < width; w ++)
+		  {
+			  float sumdata = 0;
 
-  			  for(int c = 0; c < channel; c ++)
-  			  {
-  				  float tdata = bottom_data[i * dim + c * dimScale + h * width + w];
-  				  sumdata += tdata * tdata;
-  			  }
-  			  float sumdata23 = sumdata * sqrt(sumdata) + 1e-6;
-  			  for(int c1 = 0; c1 < channel; c1 ++)
-  			  {
-  				  float tdiff = 0;
-  				  for(int c2 = 0; c2 < channel; c2 ++)
-  				  {
-  					  float tnum = 0;
-  					  float zc1 = bottom_data[i * dim + c1 * dimScale + h * width + w];
-  					  float zc2 = bottom_data[i * dim + c2 * dimScale + h * width + w];
-  					  if(c1 == c2) tnum = (sumdata - zc1 * zc1) / sumdata23;
-  					  else tnum = - (zc1 * zc2) / sumdata23;
+			  for(int c = 0; c < channel; c ++)
+			  {
+				  float tdata = bottom_data[i * dim + c * dimScale + h * width + w];
+				  sumdata += tdata * tdata;
+			  }
+			  float sumdata23 = sumdata * sqrt(sumdata) + 1e-6;
 
-  					  tnum = tnum * top_diff[i * dim + c2 * dimScale + h * width + w];
-  					  tdiff += tnum;
-  				  }
-  	  			  bottom_diff[i * dim + c1 * dimScale + h * width + w] = tdiff;
-  			  }
-  		  }
+			  Dtype tnum = 0;
+			  for(int c2 = 0; c2 < channel; c2 ++)
+			  {
+				  tnum += bottom_data[i * dim + c2 * dimScale + h * width + w] * top_diff[i * dim + c2 * dimScale + h * width + w] / sumdata23;
+			  }
+			  for(int c1 = 0; c1 < channel; c1 ++)
+			  {
+				  float zc1 = bottom_data[i * dim + c1 * dimScale + h * width + w];
+				  float tdiff = - zc1 * tnum;
+				  tdiff += sumdata * top_diff[i * dim + c1 * dimScale + h * width + w] / sumdata23;
+				  bottom_diff[i * dim + c1 * dimScale + h * width + w] = tdiff;
+			  }
+
+			  /*for(int c1 = 0; c1 < channel; c1 ++)
+			  {
+				  float tdiff = 0;
+				  for(int c2 = 0; c2 < channel; c2 ++)
+				  {
+					  float tnum = 0;
+					  float zc1 = bottom_data[i * dim + c1 * dimScale + h * width + w];
+					  float zc2 = bottom_data[i * dim + c2 * dimScale + h * width + w];
+					  if(c1 == c2) tnum = (sumdata - zc1 * zc2) / sumdata23;
+					  else tnum = - (zc1 * zc2) / sumdata23;
+
+					  tnum = tnum * top_diff[i * dim + c2 * dimScale + h * width + w];
+					  tdiff += tnum;
+				  }
+				  bottom_diff[i * dim + c1 * dimScale + h * width + w] = tdiff;
+			  }*/
+		  }
   }
+
 
 }
 
