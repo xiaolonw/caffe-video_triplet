@@ -36,7 +36,7 @@ layer {
 }
 ```
 
-neg_num means how many negative patches you want for each pair of patches, if it is 4, that means there are 4 triplets. pair_size = 2 just means inputs are pairs of patches. hard_ratio = 0.5 means half of the negative patches are hard examples, rand_ratio = 0.5 means half of the negative patches are randomly selected. For start, you can just set rand_ratio = 1 and hard_ratio = 0. The margin for contrastive loss needs to be designed for different tasks, trying to set  margin = 0.5 or 0.1 might make a difference. 
+neg_num means how many negative patches you want for each pair of patches, if it is 4, that means there are 4 triplets. pair_size = 2 just means inputs are pairs of patches. hard_ratio = 0.5 means half of the negative patches are hard examples, rand_ratio = 0.5 means half of the negative patches are randomly selected. For start, you can just set rand_ratio = 1 and hard_ratio = 0. The margin for contrastive loss needs to be designed for different tasks, trying to set  margin = 0.5 or 0.1 might make a difference for other tasks. 
 
 
 Models
