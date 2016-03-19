@@ -49,5 +49,16 @@ We offer two models trained with our method:
 [prototxt](https://github.com/xiaolonw/caffe-video_triplet/blob/master/rank_scripts/rank_alexnet/unsup_net_deploy.prototxt) is the prototxt for both models.	
 [mean](https://github.com/xiaolonw/caffe-video_triplet/blob/master/rank_scripts/rank_alexnet/video_mean.binaryproto) is the mean file.	
 
+Training Patches
+----
+The unsupervised mined patches can be downloaded from here:
+http://ladoga.graphics.cs.cmu.edu/xiaolonw/unsup_patches/
+
+Each tar file containes different patches.
+
+
+
+
+
 
 
