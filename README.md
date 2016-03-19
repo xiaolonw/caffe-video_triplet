@@ -56,6 +56,11 @@ http://ladoga.graphics.cs.cmu.edu/xiaolonw/unsup_patches/
 
 Each tar file contains different patches.
 
+The example of the training list can be downloaded from here:
+http://ladoga.graphics.cs.cmu.edu/xiaolonw/unsup_patches/trainlist.txt
+
+
+
 
 
 
