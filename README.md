@@ -54,7 +54,7 @@ Training Patches
 The unsupervised mined patches can be downloaded from here:
 http://ladoga.graphics.cs.cmu.edu/xiaolonw/unsup_patches/
 
-Each tar file containes different patches.
+Each tar file contains different patches.
 
 
 
