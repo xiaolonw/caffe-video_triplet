@@ -52,12 +52,12 @@ We offer two models trained with our method:
 Training Patches
 ----
 The unsupervised mined patches can be downloaded from here:
-http://ladoga.graphics.cs.cmu.edu/xiaolonw/unsup_patches/
+https://www.dropbox.com/sh/b9rgd8nkh498kuy/AACt6Gk8V7-f8Yq7qVSCs5TGa?dl=0
 
 Each tar file contains different patches.
 
 The example of the training list can be downloaded from here:
-http://ladoga.graphics.cs.cmu.edu/xiaolonw/unsup_patches/trainlist.txt
+https://dl.dropboxusercontent.com/u/334666754/unsup_patches/trainlist.txt
 
 
 
