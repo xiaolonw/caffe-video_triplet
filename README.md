@@ -50,6 +50,7 @@ We offer two models trained with our method:
 [mean](https://github.com/xiaolonw/caffe-video_triplet/blob/master/rank_scripts/rank_alexnet/video_mean.binaryproto) is the mean file.	
 
 In case our server is down, the models can be downloaded from dropbox:
+
 [color model](https://dl.dropboxusercontent.com/u/334666754/iccv2015/color_model.caffemodel) is trained with RGB images. 	
 [gray model](https://dl.dropboxusercontent.com/u/334666754/iccv2015/gray_model.caffemodel) is trained with gray images (3-channel inputs). 
 
