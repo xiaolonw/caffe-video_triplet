@@ -59,7 +59,8 @@ Training Patches
 The unsupervised mined patches can be downloaded from here:
 https://www.dropbox.com/sh/b9rgd8nkh498kuy/AACt6Gk8V7-f8Yq7qVSCs5TGa?dl=0
 
-Each tar file contains different patches.
+Each tar file contains different patches. Note that the file YouTube.tar.gz can be extracted by using "tar xf" even though it is named as "tar.gz" file. 
+
 
 The example of the training list can be downloaded from here:
 https://dl.dropboxusercontent.com/u/334666754/unsup_patches/trainlist.txt
