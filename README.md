@@ -51,8 +51,8 @@ We offer two models trained with our method:
 
 In case our server is down, the models can be downloaded from dropbox:
 
-[color model](https://dl.dropboxusercontent.com/u/334666754/iccv2015/color_model.caffemodel) is trained with RGB images. 	
-[gray model](https://dl.dropboxusercontent.com/u/334666754/iccv2015/gray_model.caffemodel) is trained with gray images (3-channel inputs). 
+[color model](https://www.dropbox.com/s/ipofwpyu8q49n16/color_model.caffemodel) is trained with RGB images. 	
+[gray model](https://www.dropbox.com/s/y6ose90blil6ovy/gray_model.caffemodel) is trained with gray images (3-channel inputs). 
 
 Training Patches
 ----
@@ -63,7 +63,7 @@ Each tar file contains different patches. Note that the file YouTube.tar.gz can 
 
 
 The example of the training list can be downloaded from here:
-https://dl.dropboxusercontent.com/u/334666754/unsup_patches/trainlist.txt
+https://www.dropbox.com/s/tnbu2myy7g0i6l6/trainlist.txt?dl=0
 
 
 
