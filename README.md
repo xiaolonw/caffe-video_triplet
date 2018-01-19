@@ -57,7 +57,7 @@ In case our server is down, the models can be downloaded from dropbox:
 Training Patches
 ----
 The unsupervised mined patches can be downloaded from here:
-https://www.dropbox.com/sh/b9rgd8nkh498kuy/AACt6Gk8V7-f8Yq7qVSCs5TGa?dl=0
+https://www.dropbox.com/sh/vgp2k3mdi61sdgr/AAB9vwX140jppHjp33n4UoO7a?dl=0
 
 Each tar file contains different patches. Note that the file YouTube.tar.gz can be extracted by using "tar xf" even though it is named as "tar.gz" file. 
 
